@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://ph009.github.io/atchannel/"><img src="img/readme-banner.svg" alt="Enter @channel: https://ph009.github.io/atchannel/" width="820"></a>
+</p>
+
+<p align="center"><b>▶ <a href="https://ph009.github.io/atchannel/">Enter @channel</a></b> — <code>https://ph009.github.io/atchannel/</code></p>
+
 # @channel — the CHAOS;HEAD BBS (fan-made)
 
 A fan recreation of @channel (@ちゃんねる), the BBS that Takumi reads in CHAOS;HEAD.

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="300" viewBox="0 0 820 300" role="img" aria-label="Enter @channel: https://ph009.github.io/atchannel/">
+  <defs>
+    <pattern id="brick" width="112" height="60" patternUnits="userSpaceOnUse">
+      <rect width="112" height="60" fill="#26231a"/>
+      <g fill="#5a5440" stroke="#6b6450" stroke-width="1">
+        <rect x="2" y="2" width="52" height="26"/><rect x="58" y="2" width="52" height="26"/>
+        <rect x="-26" y="32" width="52" height="26"/><rect x="30" y="32" width="52" height="26"/><rect x="86" y="32" width="52" height="26"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="820" height="300" fill="url(#brick)"/>
+  <rect x="60" y="22" width="700" height="96" fill="#f1efa9"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#9c2a2a" font-size="17">
+    <text x="410" y="56" text-anchor="middle" font-size="26" font-weight="bold"><tspan fill="#c4170b">@</tspan>channel — the CHAOS;HEAD BBS</text>
+    <text x="410" y="88" text-anchor="middle">Users under the age of 20 are not allowed to proceed.</text>
+  </g>
+  <rect x="60" y="140" width="700" height="138" fill="#ffffff"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17">
+    <rect x="706" y="152" width="13" height="13" fill="#9a00ff"/>
+    <path d="M722 165 l7 -13 l7 13 z" fill="#9a00ff"/><path d="M738 152 l14 0 l-7 13 z" fill="#9a00ff"/>
+    <text x="80" y="172"><tspan fill="#000">[1:1]</tspan><tspan dx="12" fill="#c4170b">Welcome to @channel [Click to enter]</tspan></text>
+    <text x="80" y="206"><tspan fill="#1c1cc0">1</tspan><tspan dx="14" fill="#000">Name: </tspan><tspan fill="#2f7a33">It is I, Anonymous!</tspan><tspan fill="#000"> [age]: 200X/11/5(Wed) 00:00:01 </tspan><tspan fill="#1c1cc0">ID:</tspan><tspan fill="#000">ph009+at</tspan></text>
+    <text x="80" y="234" fill="#1c1cc0">&gt;&gt;everyone</text>
+    <text x="80" y="262" fill="#2b2e9a" text-decoration="underline">https://ph009.github.io/atchannel/</text>
+  </g>
+</svg>
