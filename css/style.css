@@ -1,0 +1,264 @@
+/* @channel — visual reproduzido das telas do BBS em CHAOS;HEAD NoAH
+   Layout: fundo de tijolos oliva, coluna central com banner do board,
+   caixa amarela de regras e caixas brancas de threads. */
+:root {
+  color-scheme: light;
+  --brick-mortar: #26231a;
+  --paper: #ffffff;
+  --rules-bg: #f1efa9;
+  --rules-ink: #9c2a2a;
+  --ink: #000000;
+  --num: #1c1cc0;
+  --name: #2f7a33;
+  --title: #c4170b;
+  --nav: #9a00ff;
+  --link: #2b2e9a;
+  --link-visited: #5a2a8a;
+  --muted: #555555;
+  --popup: #f6f6ee;
+  --hl: #fff4a8;
+  --font: Arial, "Liberation Sans", Helvetica, "Nimbus Sans", sans-serif;
+  --font-aa: "MS PGothic", "ＭＳ Ｐゴシック", "IPAMonaPGothic", "Mona", "Monapo", "Textar", Arial, sans-serif;
+  --font-banner: "Anton", Impact, "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--brick-mortar) url("../img/brick.png") repeat;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.45;
+}
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+a:hover { color: var(--title); }
+#app {
+  max-width: 1180px; margin: 0 auto;
+  padding-block: 18px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.col { width: 100%; max-width: 1000px; margin: 0 auto; }
+
+/* ---------- banner do board ---------- */
+.banner {
+  position: relative; width: 430px; max-width: 100%; height: 140px; margin: 0 auto 26px;
+  overflow: hidden; border: 1px solid #000; user-select: none;
+  background: linear-gradient(180deg, #2a7fd1 0%, #59b3ea 38%, #bfe9f7 52%, #1aa6c7 56%, #0f7fa8 78%, #e8dcb0 100%);
+}
+.banner .b-mascot {
+  position: absolute; left: 8px; top: 30px; width: 98px; text-align: center;
+  font-family: var(--font-aa); font-size: 22px; line-height: 1; color: #000; font-weight: bold;
+  text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
+}
+.banner .b-mascot small { display: block; font-size: 15px; letter-spacing: -1px; margin-top: 4px; }
+.banner .b-slogan {
+  position: absolute; right: 8px; top: 6px; font-weight: bold; font-style: italic; font-size: 11px; color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.banner .b-title {
+  position: absolute; left: 108px; right: 6px; top: 30px;
+  font-family: var(--font-banner); font-size: 31px; line-height: 1.05; color: #111; letter-spacing: -0.5px;
+  text-shadow: 2px 2px 0 rgba(255,255,255,.75);
+}
+.banner .b-warn {
+  position: absolute; right: 8px; bottom: 6px; font-size: 10.5px; font-weight: bold; font-style: italic;
+  color: #e00000; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+.banner .b-warn u { text-decoration-thickness: 1px; }
+/* temas */
+.banner.t-night { background: linear-gradient(180deg, #05050f 0%, #1a1030 45%, #4a0d14 75%, #8a1a10 100%); }
+.banner.t-night .b-title { color: #f2f2f2; text-shadow: 2px 2px 0 #000; }
+.banner.t-night .b-mascot { color: #fff; text-shadow: 0 0 3px #f00; }
+.banner.t-occult { background: radial-gradient(ellipse at 70% 40%, #6c3c8c 0%, #2b1240 50%, #0b0414 100%); }
+.banner.t-occult .b-title { color: #efe6ff; text-shadow: 0 0 6px #b070ff; }
+.banner.t-occult .b-mascot { color: #fff; text-shadow: 0 0 4px #b070ff; }
+.banner.t-vip { background: linear-gradient(135deg, #ffe14d 0%, #ffb300 45%, #ff7a00 100%); }
+.banner.t-field { background: linear-gradient(180deg, #8cc7f0 0%, #cfe9f7 40%, #7fb04a 41%, #4c7d2a 100%); }
+.banner.t-quake { background: repeating-linear-gradient(-45deg, #ffd400 0 18px, #222 18px 36px); }
+.banner.t-quake .b-title { background: rgba(255,255,255,.85); padding: 0 6px; display: inline-block; right: auto; }
+.banner.t-portal { background: linear-gradient(180deg, #fafafa 0%, #d7dde3 100%); }
+.banner.t-portal .b-title { font-size: 46px; }
+.banner.t-portal .b-title .at { color: #c4170b; }
+
+/* ---------- caixa amarela de regras ---------- */
+.rules {
+  background: var(--rules-bg); color: var(--rules-ink);
+  padding: 34px 40px 30px; margin-bottom: 28px; font-size: 16.5px; line-height: 1.75;
+}
+.rules p { margin: 0; }
+.rules .center { text-align: center; margin-top: 18px; }
+.rules a { color: var(--link); }
+.rules ul { margin: 6px 0 0; padding-left: 20px; }
+
+/* ---------- caixa branca (thread) ---------- */
+.tbox { background: var(--paper); padding: 10px 22px 22px; margin-bottom: 28px; }
+.tnav { text-align: right; height: 20px; line-height: 1; }
+.tnav a, .tnav span {
+  display: inline-block; width: 15px; height: 15px; margin-left: 2px; vertical-align: top;
+  background: var(--nav); text-decoration: none; cursor: pointer;
+}
+.tnav .up { background: transparent; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 15px solid var(--nav); }
+.tnav .down { background: transparent; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 15px solid var(--nav); }
+.ttitle { font-size: 19px; margin: 2px 0 14px; }
+.ttitle .cnt { color: var(--ink); margin-right: 12px; }
+.ttitle .t { color: var(--title); }
+.ttitle a.t { text-decoration: none; }
+.ttitle a.t:hover { text-decoration: underline; }
+
+/* ---------- posts ---------- */
+.post { margin: 0 0 26px; }
+.post .ph { margin: 0; }
+.post .num { color: var(--num); cursor: pointer; text-decoration: none; margin-right: 14px; }
+.post .num:hover { text-decoration: underline; }
+.post .name { color: var(--name); }
+.post .trip { color: var(--name); }
+.post .idl { color: var(--num); }
+.post .id { cursor: pointer; }
+.post .id.many { color: #d00000; }
+.post .body { margin: 0; overflow-wrap: anywhere; }
+.post.hl { background: var(--hl); }
+.post.mine .name::after { content: " (You)"; color: var(--muted); font-size: 13px; }
+.anchor { color: var(--num); text-decoration: none; cursor: pointer; }
+.anchor:hover { text-decoration: underline; }
+.aa { font-family: var(--font-aa); font-size: 16px; line-height: 18px; white-space: pre; display: block; overflow-x: auto; }
+.omitted { color: var(--muted); font-size: 15px; margin: -10px 0 20px; }
+.tfoot { font-size: 15px; border-top: 1px solid #ddd; padding-top: 10px; }
+.tfoot a { margin-right: 14px; }
+.sizeinfo { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.over1000 { color: #d00000; font-weight: bold; }
+
+/* ---------- índice de threads ---------- */
+.tindex { font-size: 16px; line-height: 1.7; }
+.tindex a { margin-right: 10px; display: inline-block; }
+.tindex .all { font-weight: bold; }
+
+/* ---------- formulário ---------- */
+form.bbs { margin-top: 14px; font-size: 15px; }
+form.bbs .row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin-bottom: 6px; }
+form.bbs label { white-space: nowrap; max-width: 100%; }
+form.bbs label.grow { display: flex; gap: 6px; align-items: center; flex: 1 1 100%; white-space: normal; }
+form.bbs label.grow input { flex: 1; min-width: 0; width: auto; max-width: 460px; }
+form.bbs input[type=text] { width: 190px; max-width: 100%; font: inherit; padding: 1px 3px; }
+form.bbs input.wide { width: 460px; }
+form.bbs textarea { width: 100%; max-width: 640px; height: 120px; font: inherit; font-size: 16px; display: block; }
+form.bbs button { font: inherit; padding: 2px 14px; }
+.form-msg { color: #d00000; font-weight: bold; min-height: 1.2em; }
+
+/* ---------- portal ---------- */
+.portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 6px 28px; }
+.portal-grid h3 { margin: 10px 0 2px; font-size: 16px; color: var(--title); font-weight: normal; }
+.portal-grid a { display: block; }
+.counter { font-family: "Courier New", monospace; background: #000; color: #3f3; padding: 1px 6px; letter-spacing: 2px; }
+
+/* ---------- popup de âncora ---------- */
+#popup-layer { position: absolute; top: 0; left: 0; z-index: 50; }
+.popup {
+  position: absolute; background: var(--popup); border: 1px solid #555; padding: 8px 12px;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.35); width: max-content; max-width: min(700px, 94vw); font-size: 15px;
+}
+.popup .post { margin: 0 0 10px; }
+.popup .post:last-child { margin-bottom: 0; }
+
+/* ---------- blog de resumos "All Things New Gen" ---------- */
+.ng { background: #111; border: 2px solid #000; color: #000; }
+.ng-head {
+  position: relative; padding: 22px 28px 46px; overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 30%, #d10000 0 34px, transparent 35px),
+    radial-gradient(circle at 88% 52%, #b30000 0 16px, transparent 17px),
+    radial-gradient(circle at 76% 58%, #c20000 0 10px, transparent 11px),
+    radial-gradient(circle at 93% 20%, #a80000 0 7px, transparent 8px),
+    linear-gradient(90deg, #9b0000, #d40000 55%, #7a0000);
+}
+.ng-head .kick { font-family: var(--font-banner); color: #ffd400; font-size: 18px; font-style: italic; letter-spacing: .5px; }
+.ng-head h1 {
+  margin: 0; font-family: var(--font-banner); font-style: italic; font-weight: normal; font-size: clamp(32px, 7vw, 60px);
+  color: #fff; line-height: 1; transform: skewX(-8deg); text-shadow: 3px 3px 0 #000;
+}
+.ng-head .bears {
+  position: absolute; left: 20px; right: 0; bottom: 6px; white-space: nowrap; overflow: hidden;
+  font-family: var(--font-aa); font-size: 30px; color: #5a0000; letter-spacing: 2px;
+}
+.ng-body { display: grid; grid-template-columns: minmax(0, 1fr) 210px; }
+.ng-bar { background: #000; color: #ffd400; padding: 4px 14px; font-size: 17px; }
+.ng-bar a { color: #ffd400; }
+.ng-list { background: #f6f3c4; padding: 10px 14px; margin: 0; list-style: none; }
+.ng-list li { margin: 3px 0; }
+.ng-list .kao { font-family: var(--font-aa); color: #222; margin-right: 6px; }
+.ng-list a { color: #c0189a; }
+.ng-article { background: #0b16c8; color: #fff; padding: 14px 22px 20px; }
+.ng-article .date { text-align: right; font-size: 13px; color: #b9c0ff; }
+.ng-article h3 { margin: 6px 0; color: #6fd2ff; font-weight: normal; font-size: 19px; }
+.ng-article p { margin: 4px 0 4px 24px; }
+.ng-article .aa { color: #fff; }
+.ng-side { background: #eee; border-left: 2px solid #000; font-size: 13px; }
+.ng-side .counter-row { background: #fff; padding: 6px; text-align: center; }
+.ng-side .counter-row span { display: inline-block; width: 20px; height: 20px; line-height: 20px; border-radius: 50%; background: #000; color: #fff; font-weight: bold; margin: 1px; }
+.ng-side h4 { margin: 0; background: #888; color: #fff; padding: 3px 8px; letter-spacing: 2px; }
+.ng-side ul { list-style: none; margin: 0; padding: 6px 10px; letter-spacing: 1px; color: #666; }
+.ng-side .box { background: #000; color: #fff; margin: 10px; padding: 6px 10px; border-radius: 4px; }
+.ng-side .box a { color: #fff; display: block; }
+
+/* ---------- back to home ---------- */
+.homebar { max-width: 1000px; margin: 0 auto 14px; }
+.homebtn {
+  display: inline-block; background: var(--rules-bg); color: var(--rules-ink); border: 2px solid #000;
+  padding: 6px 16px; font-size: 16px; font-weight: bold; text-decoration: none; box-shadow: 3px 3px 0 rgba(0,0,0,.45);
+}
+.homebtn:visited { color: var(--rules-ink); }
+.homebtn:hover, .homebtn:focus-visible { background: #fff; color: var(--title); }
+.floathome {
+  position: fixed; z-index: 40; left: calc(12px + env(safe-area-inset-left, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  background: var(--rules-bg); color: var(--rules-ink); border: 2px solid #000; padding: 5px 12px; font-weight: bold; font-size: 14px;
+  text-decoration: none; box-shadow: 3px 3px 0 rgba(0,0,0,.45);
+}
+.floathome:visited { color: var(--rules-ink); }
+.floathome:hover, .floathome:focus-visible { background: #fff; color: var(--title); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--nav); outline-offset: 2px; }
+
+/* ---------- New Gen case list ---------- */
+.cases-wrap { overflow-x: auto; }
+.cases { border-collapse: collapse; font-size: 16px; }
+.cases td { padding: 3px 14px 3px 0; vertical-align: top; }
+.cases .cno { white-space: nowrap; }
+.cases .cdate { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cases .cname { white-space: nowrap; color: var(--title); }
+.cases .ckao { white-space: nowrap; font-family: var(--font-aa); }
+.cases .cv { color: var(--muted); }
+.ng-cases { color: #fff; margin: 6px 0 14px 24px; font-size: 15px; }
+.ng-cases .cname { color: #ffd400; }
+.ng-cases .cv { color: #b9c0ff; }
+.ng-cases .ctext { min-width: 260px; }
+
+/* ---------- misc ---------- */
+.footer { text-align: center; color: #d8d2bb; font-size: 12px; margin-top: 10px; text-shadow: 1px 1px 0 #000; }
+.footer a { color: #f1efa9; }
+.search-hit { border-top: 1px solid #ddd; padding: 8px 0; }
+mark { background: #ffff00; }
+.small { font-size: 14px; }
+
+/* ---------- "Whose eyes are those eyes?" ---------- */
+#eyes {
+  position: fixed; inset: 0; display: none; z-index: 999; align-items: center; justify-content: center; text-align: center;
+  background: rgba(0,0,0,.93); color: #c00000; padding: 20px;
+  font-size: min(8vw, 64px); font-weight: bold; letter-spacing: .06em; text-shadow: 0 0 14px #f00;
+  font-family: "Times New Roman", "MS PMincho", serif; pointer-events: none;
+}
+#eyes small { display: block; font-size: .5em; letter-spacing: .3em; margin-top: 10px; }
+#eyes.on { display: flex; animation: flicker .9s steps(2) 2; }
+@keyframes flicker { 0% { opacity: 1 } 50% { opacity: .15 } 100% { opacity: 1 } }
+.glitch { animation: glitch .25s steps(2) 3; }
+@keyframes glitch { 50% { transform: translate(-3px, 1px); filter: invert(1) hue-rotate(180deg); } }
+.creepy { color: #a00000; }
+@media (prefers-reduced-motion: reduce) { #eyes.on, .glitch { animation: none; } }
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .tbox { padding: 8px 12px 16px; }
+  .rules { padding: 20px 18px; }
+  .ng-body { grid-template-columns: minmax(0, 1fr); }
+  .ng-side { border-left: 0; border-top: 2px solid #000; }
+  .banner .b-title { font-size: 30px; }
+}
