@@ -25,3 +25,7 @@ Static site with no dependencies: open `index.html` or publish it with GitHub Pa
 - Easter egg: *Whose eyes are those eyes?*
 
 All post text is original. Not affiliated with MAGES./Nitroplus/Spike Chunsoft.
+
+## Credits
+- [ph009](https://github.com/ph009): idea, direction and maintenance
+- Claude (Anthropic): code and writing
